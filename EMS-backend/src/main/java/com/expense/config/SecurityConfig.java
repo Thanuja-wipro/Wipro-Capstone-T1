@@ -3,7 +3,7 @@ package com.expense.config;
 import org.springframework.context.annotation.Bean;
 
 import org.springframework.security.config.Customizer;
-import com.expense.service.UserDetailsServiceImpl;
+import com.expense.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -21,12 +21,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-	private final UserDetailsServiceImpl userDetailsService;
+	private final UserService userDetailsService;
     private final PasswordEncoder passwordEncoder;
 
 
     @Autowired
-    public SecurityConfig(UserDetailsServiceImpl userDetailsService, PasswordEncoder passwordEncoder) {
+    public SecurityConfig(UserService userDetailsService, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
     }
@@ -61,4 +61,3 @@ public class SecurityConfig {
 }
 
 
-//.requestMatchers("/docapi/user/**").permitAll()
