@@ -1,2 +1,9 @@
 # Ignore all files in .metadata directory
 .metadata/
+
+
+/EMS-backend/src/main/resources/application.properties
+/EMS-backend/target/classes/application.properties
+/EMS-backend/.settings/
+/EMS-backend/target/
+
