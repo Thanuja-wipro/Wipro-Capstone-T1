@@ -2,6 +2,8 @@ package com.expense.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.List;
 
 @Entity
@@ -10,6 +12,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryID;
 
+    @NotNull
     private String name;
     private String description;
 

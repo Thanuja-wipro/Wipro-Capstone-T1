@@ -49,7 +49,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(HttpMethod.POST, "/user/auth/signin").permitAll()
                         .requestMatchers(HttpMethod.POST, "/user/auth/signup").permitAll()
+                        
                         .requestMatchers("/user/auth/**").permitAll()
+                        .requestMatchers("/reports/**").permitAll()
+                        .requestMatchers("/notifications/**").permitAll()
+                        .requestMatchers("/expenses/**").permitAll()
+                        .requestMatchers("/categories/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
 
