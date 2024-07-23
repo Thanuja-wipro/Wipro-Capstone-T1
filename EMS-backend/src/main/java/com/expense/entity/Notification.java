@@ -74,8 +74,8 @@ public class Notification {
 	}
 
     
+	public enum Status {
+		READ, UNREAD
+	}
 }
 
-enum Status {
-    READ, UNREAD
-}

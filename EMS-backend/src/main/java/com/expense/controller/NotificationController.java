@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expense.dto.NotificationDto;
 import com.expense.entity.Notification;
 import com.expense.service.NotificationService;
 
@@ -23,8 +24,8 @@ public class NotificationController {
 	private NotificationService notificationService;
 	
 	@PostMapping
-    public Notification createNotification(@RequestBody Notification notification) {
-        return notificationService.saveNotification(notification);
+    public Notification createNotification(@RequestBody NotificationDto notificationDTO) {
+        return notificationService.saveNotification(notificationDTO);
     }
 
     @GetMapping
@@ -32,13 +33,15 @@ public class NotificationController {
         return notificationService.getAllNotifications();
     }
 
-    @GetMapping("/{id}")
-    public Optional<Notification> getUserById(@PathVariable Long id) {
-        return notificationService.getNotificationById(id);
-    }
 
     @DeleteMapping("/{id}")
     public void deleteNotification(@PathVariable Long id) {
     	notificationService.deleteNotification(id);
     }
+    
+    @DeleteMapping
+    public void deleteAllNotification() {
+    	notificationService.deleteAllNotification();
+    }
+    
 }
