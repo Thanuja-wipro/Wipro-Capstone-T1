@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Category {
     @Id
@@ -17,6 +19,7 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category")
+    @JsonBackReference
     private List<Expense> expenses;
 
 	public Category() {

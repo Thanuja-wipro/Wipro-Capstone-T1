@@ -3,6 +3,9 @@ package com.expense.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,13 +16,16 @@ public class Expense {
 
     @ManyToOne
     @JoinColumn(name = "userID")
+    @JsonManagedReference
     private User user;
 
     private Double amount;
     private Date date;
 
+    
     @ManyToOne
     @JoinColumn(name = "categoryID")
+    @JsonManagedReference
     private Category category;
 
     private String description;

@@ -4,6 +4,9 @@ package com.expense.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class User {
     @Id
@@ -18,7 +21,9 @@ public class User {
 
     private String password;
 
+    
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private List<Expense> expenses;
 
 	public User(Long userID, String name, String email, Role role, String password, List<Expense> expenses) {
@@ -30,6 +35,7 @@ public class User {
 		this.password = password;
 		this.expenses = expenses;
 	}
+
 
 	public User() {
 		super();

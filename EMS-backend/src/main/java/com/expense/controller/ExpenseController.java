@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expense.dto.ExpenseDto;
+import com.expense.entity.Category;
 import com.expense.entity.Expense;
+import com.expense.exception.ResourceNotFoundException;
 import com.expense.service.ExpenseService;
 
 @RestController
@@ -23,8 +27,8 @@ public class ExpenseController {
 	private ExpenseService expenseService;
 	
 	@PostMapping
-    public Expense createUser(@RequestBody Expense expense) {
-        return expenseService.saveExpense(expense);
+    public Expense createUser(@RequestBody ExpenseDto expenseDTO) {
+        return expenseService.saveExpense(expenseDTO);
     }
 
     @GetMapping
@@ -35,6 +39,11 @@ public class ExpenseController {
     @GetMapping("/{id}")
     public Optional<Expense> getExpenseById(@PathVariable Long id) {
         return expenseService.getExpenseById(id);
+    }
+    
+    @PutMapping("/{id}")
+    public Expense updateExpense(@PathVariable Long id, @RequestBody ExpenseDto expenseDTO) throws ResourceNotFoundException{
+    	return expenseService.updateExpense(id, expenseDTO);
     }
 
     @DeleteMapping("/{id}")
