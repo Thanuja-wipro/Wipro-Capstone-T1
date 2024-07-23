@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expense.dto.ExpenseDto;
+import com.expense.dto.ReportDto;
+import com.expense.entity.Expense;
 import com.expense.entity.Report;
 import com.expense.service.ReportService;
 
@@ -23,10 +26,15 @@ public class ReportController {
 	private ReportService reportService;
 	
 	@PostMapping
-    public Report createUser(@RequestBody Report report) {
-        return reportService.saveReport(report);
+    public Report createReport(@RequestBody ReportDto reportDTO) {
+        return reportService.saveReport(reportDTO);
     }
 
+	@PostMapping("/generate")
+    public List<Expense> getExpensesByUserAndDateRange(@RequestBody ExpenseDto filterDTO) {
+        return reportService.getExpensesByUserAndDateRange(filterDTO);
+    }
+	
     @GetMapping
     public List<Report> getAllReports() {
         return reportService.getAllReports();
