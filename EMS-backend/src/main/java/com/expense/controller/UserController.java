@@ -1,5 +1,8 @@
 package com.expense.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +13,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.expense.entity.User;
 import com.expense.repository.UserRepository;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/user/auth")
 public class UserController {
@@ -42,8 +46,12 @@ public class UserController {
                    new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
 
            SecurityContextHolder.getContext().setAuthentication(authentication);
-           return ResponseEntity.ok("User signed-in successful");
 
+           Map<String, Object> response = new HashMap<>();
+           response.put("status", 200);
+           response.put("message", "User signed-in successful");
+
+           return ResponseEntity.ok(response);
      
    }
 
@@ -51,12 +59,10 @@ public class UserController {
    @PostMapping("/signup")
    public ResponseEntity<?> registerUser(@RequestBody User user) {
 
-       // add check for email exists in DB
        if (userRepository.existsByEmail(user.getEmail())) {
            return new ResponseEntity<>("Email is already taken!", HttpStatus.BAD_REQUEST);
        }
 
-       // create user object
        User new_user = new User();
        new_user.setName(user.getName());
        new_user.setRole(user.getRole());
@@ -65,6 +71,10 @@ public class UserController {
 
        userRepository.save(new_user);
 
-       return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
+       Map<String, Object> response = new HashMap<>();
+       response.put("status", 200);
+       response.put("message", "User registered successfully");
+
+       return new ResponseEntity<>(response, HttpStatus.OK);
    }
 }

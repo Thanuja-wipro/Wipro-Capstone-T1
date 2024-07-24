@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class AuthComponent {
   isLoginMode: boolean = true;
-  username: string = '';
+  name: string = '';
   password: string = '';
   email: string = '';
   role: string = 'ADMIN';
@@ -40,7 +40,7 @@ export class AuthComponent {
   }
 
   onSignup() {
-    this.authService.signup(this.username, this.email, this.role, this.password).subscribe(
+    this.authService.signup(this.name, this.email, this.role, this.password).subscribe(
       response => {
         if (response.status === 200) {
           this.isLoginMode = true;
@@ -49,13 +49,13 @@ export class AuthComponent {
         }
       },
       error => {
-        this.showToast('Signup failed. Please try again.');
+        this.showToast('Email is already taken');
       }
     );
   }
 
   resetFormFields() {
-    this.username = '';
+    this.name = '';
     this.password = '';
     this.email = '';
     this.role = 'ADMIN';

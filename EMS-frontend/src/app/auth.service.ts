@@ -11,13 +11,13 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = '';
+  private apiUrl = 'http://localhost:6060';
   private loggedIn = false;
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, { username, password }).pipe(
+  login(email: string, password: string): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/user/auth/signin`, { email, password }).pipe(
       map(response => {
         if (response.status === 200) {
           this.loggedIn = true;
@@ -27,8 +27,8 @@ export class AuthService {
     );
   }
 
-  signup(username: string, email: string, role: String, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/signup`, { username, email, password });
+  signup(name: string, email: string, role: String, password: string): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/user/auth/signup`, { name, email, role, password });
   }
 
   isLoggedIn(): boolean {
