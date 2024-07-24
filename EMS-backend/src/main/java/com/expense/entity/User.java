@@ -23,7 +23,7 @@ public class User {
 
     
     @OneToMany(mappedBy = "user")
-    @JsonBackReference
+    @JsonManagedReference("user-expenses")
     private List<Expense> expenses;
 
 	public User(Long userID, String name, String email, Role role, String password, List<Expense> expenses) {

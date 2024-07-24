@@ -16,7 +16,7 @@ public class Expense {
 
     @ManyToOne
     @JoinColumn(name = "userID")
-    @JsonManagedReference
+    @JsonBackReference("user-expenses")
     private User user;
 
     private Double amount;
@@ -25,7 +25,7 @@ public class Expense {
     
     @ManyToOne
     @JoinColumn(name = "categoryID")
-    @JsonManagedReference
+    @JsonBackReference("category-expenses")
     private Category category;
 
     private String description;
