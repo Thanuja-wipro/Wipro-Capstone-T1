@@ -89,11 +89,8 @@ export class ExpenseComponent implements OnInit {
     };
 
     this.expenseService.createExpense(newExpense).subscribe(expense => {
-      console.log('New expense created:', expense);
       this.loadTableData();
       this.expenseForm.reset();
-    }, error => {
-      console.error('Error creating expense:', error);
     });
   }
 
