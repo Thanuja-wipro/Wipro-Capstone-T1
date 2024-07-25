@@ -19,7 +19,8 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "category")
+    
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     @JsonManagedReference("category-expenses")
     private List<Expense> expenses;
 

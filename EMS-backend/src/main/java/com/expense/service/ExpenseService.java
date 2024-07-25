@@ -52,7 +52,6 @@ public class ExpenseService {
     
     public Expense updateExpense(Long id, ExpenseDto expenseDTO) throws ResourceNotFoundException{
     	Expense existingExpense= expenseRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Expense Not Found"));
-    	
     	User user = userRepo.findById(expenseDTO.getUser()).orElseThrow(() -> new RuntimeException("User not found"));
         Category category = categoryRepo.findById(expenseDTO.getCategory()).orElseThrow(() -> new RuntimeException("Category not found"));
 

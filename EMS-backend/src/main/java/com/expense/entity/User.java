@@ -22,7 +22,7 @@ public class User {
     private String password;
 
     
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonManagedReference("user-expenses")
     private List<Expense> expenses;
 

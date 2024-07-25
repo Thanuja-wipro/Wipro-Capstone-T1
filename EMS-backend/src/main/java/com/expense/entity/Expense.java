@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 
@@ -14,20 +15,29 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long expenseID;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userID")
     @JsonBackReference("user-expenses")
     private User user;
+    
+    @Transient
+    @JsonProperty("userID")
+    private Long userID;
+
 
     private Double amount;
     private Date date;
 
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryID")
     @JsonBackReference("category-expenses")
     private Category category;
 
+    @Transient
+    @JsonProperty("categoryID")
+    private Long categoryID;
+    
     private String description;
 
 	public Expense(Long expenseID, User user, Double amount, Date date, Category category, String description) {
@@ -92,5 +102,13 @@ public class Expense {
 		this.description = description;
 	}
 
-    
+	@PostLoad
+    public void populateTransientFields() {
+        if (this.user != null) {
+            this.userID = this.user.getUserID();
+        }
+        if (this.category != null) {
+            this.categoryID = this.category.getCategoryID();
+        }
+    }
 }

@@ -2,9 +2,9 @@
     <div class="form-row">
         <div class="form-group">
             <label for="user">User</label>
-            <select id="user" formControlName="user">
-                <option *ngFor="let option of dropdownOptions" [value]="option.value">
-                    {{option.label}}
+            <select id="user" formControlName="userID">
+                <option *ngFor="let option of userDropdownOptions" [value]="option.userID">
+                    {{option.userID}} - {{option.name}}
                 </option>
             </select>
         </div>
@@ -23,9 +23,9 @@
 
         <div class="form-group">
             <label for="category">Category</label>
-            <select id="category" formControlName="category">
-                <option *ngFor="let option of dropdownOptions" [value]="option.value">
-                    {{option.label}}
+            <select id="category" formControlName="categoryID">
+                <option *ngFor="let option of categoryDropdownOptions" [value]="option.categoryID">
+                    {{option.categoryID}} - {{option.name}}
                 </option>
             </select>
         </div>
@@ -34,7 +34,7 @@
     <div class="form-row">
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" formControlName="description"  rows="4" cols="12"></textarea>
+            <textarea id="description" formControlName="description" rows="4" cols="12"></textarea>
         </div>
     </div>
 
@@ -55,21 +55,21 @@
     <tbody>
         <tr *ngFor="let element of dataSource">
             <td>
-                <ng-container *ngIf="editingElement?.id === element.id; else displayUser">
-                    <select id="edit-user" [(ngModel)]="editingElement.user">
-                        <option *ngFor="let option of dropdownOptions" [value]="option.value">
-                            {{option.label}}
+                <ng-container *ngIf="isEditing(element); else displayUser">
+                    <select id="edit-user" [(ngModel)]="element.userID">
+                        <option *ngFor="let option of userDropdownOptions" [value]="option.userID">
+                            {{option.userID}} - {{option.name}}
                         </option>
                     </select>
                 </ng-container>
                 <ng-template #displayUser>
-                    <span>{{element.user}}</span>
+                    <span>{{ getUserName(element.userID) }}</span>
                 </ng-template>
             </td>
 
             <td>
-                <ng-container *ngIf="editingElement?.id === element.id; else displayAmount">
-                    <input type="text" [(ngModel)]="editingElement.amount">
+                <ng-container *ngIf="isEditing(element); else displayAmount">
+                    <input type="number" [(ngModel)]="element.amount">
                 </ng-container>
                 <ng-template #displayAmount>
                     <span>{{element.amount}}</span>
@@ -77,30 +77,30 @@
             </td>
 
             <td>
-                <ng-container *ngIf="editingElement?.id === element.id; else displayDate">
-                    <input type="date" [(ngModel)]="editingElement.date">
+                <ng-container *ngIf="isEditing(element); else displayDate">
+                    <input type="date" [(ngModel)]="element.date">
                 </ng-container>
                 <ng-template #displayDate>
-                    <span>{{element.date}}</span>
+                    <span>{{formatDate(element.date)}}</span>
                 </ng-template>
             </td>
 
             <td>
-                <ng-container *ngIf="editingElement?.id === element.id; else displayCategory">
-                    <select id="edit-dropdown4" [(ngModel)]="editingElement.category">
-                        <option *ngFor="let option of dropdownOptions" [value]="option.value">
-                            {{option.label}}
+                <ng-container *ngIf="isEditing(element); else displayCategory">
+                    <select id="edit-category" [(ngModel)]="element.categoryID">
+                        <option *ngFor="let option of categoryDropdownOptions" [value]="option.categoryID">
+                            {{option.categoryID}} - {{option.name}}
                         </option>
                     </select>
                 </ng-container>
                 <ng-template #displayCategory>
-                    <span>{{element.category}}</span>
+                    <span>{{ getCategoryName(element.categoryID) }}</span>
                 </ng-template>
             </td>
 
             <td>
-                <ng-container *ngIf="editingElement?.id === element.id; else displayDescription">
-                    <input type="text" [(ngModel)]="editingElement.description">
+                <ng-container *ngIf="isEditing(element); else displayDescription">
+                    <input type="text" [(ngModel)]="element.description">
                 </ng-container>
                 <ng-template #displayDescription>
                     <span>{{element.description}}</span>
@@ -108,13 +108,13 @@
             </td>
 
             <td>
-                <ng-container *ngIf="editingElement?.id === element.id; else actionButtons">
-                    <button (click)="updateElement(element)">Update</button>
+                <ng-container *ngIf="isEditing(element); else actionButtons">
+                    <button (click)="updateElement()">Update</button>
                     <button (click)="cancelEdit()">Cancel</button>
                 </ng-container>
                 <ng-template #actionButtons>
-                    <button (click)="editElement(element)" [disabled]="isEditing()">Edit</button>
-                    <button (click)="deleteElement(element.id)" [disabled]="isEditing()">Delete</button>
+                    <button (click)="editElement(element)" [disabled]="editingElementID !== null">Edit</button>
+                    <button (click)="deleteElement(element.expenseID)" [disabled]="editingElementID !== null">Delete</button>
                 </ng-template>
             </td>
         </tr>

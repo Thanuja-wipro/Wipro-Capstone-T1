@@ -1,6 +1,7 @@
 package com.expense.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expense.entity.Expense;
 import com.expense.entity.User;
 import com.expense.repository.UserRepository;
 
@@ -41,7 +44,7 @@ public class UserController {
        
     	   User ex_user = userRepository.findByEmail(user.getEmail())
                    .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + user.getEmail()));
-    	   System.out.println("user existed");
+    	  
            Authentication authentication = authenticationManager.authenticate(
                    new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
 
@@ -77,4 +80,10 @@ public class UserController {
 
        return new ResponseEntity<>(response, HttpStatus.OK);
    }
+   
+   @GetMapping
+   public List<User> getAllUsers() {
+       return userRepository.findAll();
+   }
+
 }
