@@ -22,7 +22,7 @@
         <tbody>
             <tr *ngFor="let category of categories">
                 <td>
-                    <ng-container *ngIf="editingCategory?.id === category.id; else displayName">
+                    <ng-container *ngIf="editingCategory?.categoryID === category.categoryID; else displayName">
                         <input type="text" [(ngModel)]="editingCategoryName">
                     </ng-container>
                     <ng-template #displayName>
@@ -30,7 +30,7 @@
                     </ng-template>
                 </td>
                 <td>
-                    <ng-container *ngIf="editingCategory?.id === category.id; else displayDescription">
+                    <ng-container *ngIf="editingCategory?.categoryID === category.categoryID; else displayDescription">
                         <input type="text" [(ngModel)]="editingCategoryDescription">
                     </ng-container>
                     <ng-template #displayDescription>
@@ -38,14 +38,14 @@
                     </ng-template>
                 </td>
                 <td>
-                    <ng-container *ngIf="editingCategory?.id === category.id; else actionButtons">
+                    <ng-container *ngIf="editingCategory?.categoryID === category.categoryID; else actionButtons">
                         <button (click)="updateCategory()">Update</button>
                         <button (click)="cancelEdit()">Cancel</button>
                     </ng-container>
                     <ng-template #actionButtons>
                         <button (click)="editCategory(category)"
-                            [disabled]="isEditing() && editingCategory?.id !== category.id">Edit</button>
-                        <button (click)="deleteCategory(category.id)" [disabled]="isEditing()">Delete</button>
+                            [disabled]="isEditing() && editingCategory?.categoryID !== category.categoryID">Edit</button>
+                        <button (click)="deleteCategory(category.categoryID)" [disabled]="isEditing()">Delete</button>
                     </ng-template>
                 </td>
             </tr>

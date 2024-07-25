@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.expense.entity.Category;
 import com.expense.exception.ResourceNotFoundException;
 import com.expense.service.CategoryService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
