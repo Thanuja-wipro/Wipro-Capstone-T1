@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from '../category.service';
+import { UserService } from '../user.service';
+import { NotificationService } from '../notification.service';
+import { HomeComponent } from '../home/home.component';
 
 interface Category {
   categoryID: number;
@@ -20,7 +23,10 @@ export class CategoryComponent implements OnInit {
   editingCategoryDescription: string = '';
   categories: Category[] = [];
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService) {
+  user: any;
+
+  constructor(private fb: FormBuilder, private categoryService: CategoryService,
+    private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent) {
     this.categoryForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required]
@@ -29,14 +35,17 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCategories();
+    this.userService.user$.subscribe(user => {
+      this.user = user;
+    });
   }
+
 
   loadCategories(): void {
     this.categoryService.getCategories().subscribe(categories => {
-      console.log('Fetched categories:', categories);
       this.categories = categories;
     });
-    
+
   }
 
   onSubmit() {
@@ -45,22 +54,33 @@ export class CategoryComponent implements OnInit {
     }
 
     const newCategory: Category = {
-      categoryID: 0, 
+      categoryID: 0,
       ...this.categoryForm.value
+    };
+
+    const newNotification: any = {
+      user: this.user.uid,
+      status: 'UNREAD',
+      date: new Date().toISOString(),
+      message: `New category (${newCategory.name}) created`,
     };
 
     this.categoryService.createCategory(newCategory).subscribe(category => {
       this.categories.push(category);
       this.categoryForm.reset();
     });
+    this.notificationService.createNotification(newNotification).subscribe(notification => {
+      this.homeComponent.loadNotifications();
+    });
   }
+
 
   editCategory(category: Category): void {
     this.editingCategory = { ...category };
     this.editingCategoryName = category.name;
     this.editingCategoryDescription = category.description;
   }
-  
+
   updateCategory(): void {
     if (this.editingCategory) {
       this.editingCategory.name = this.editingCategoryName;

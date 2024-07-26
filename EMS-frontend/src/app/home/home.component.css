@@ -39,19 +39,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 1000; /* Ensure it is below the modal */
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
 }
 
 .notification-modal {
   position: fixed;
-  top: 50px; /* Adjust based on where you want it to appear */
-  right: 10px; /* Adjust for desired positioning */
-  width: 300px;
+  top: 50px; 
+  right: 10px; 
+  width: 500px;
   background: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  z-index: 1001; /* Ensure it is above the backdrop */
+  z-index: 1001; 
 }
 
 .modal-content {
@@ -91,17 +91,16 @@
   justify-content: space-between;
 }
 
-.notification-row .read {
+.notification-row .READ {
   font-weight: normal;
   color: #000;
 }
 
-.notification-row .unread {
+.notification-row .UNREAD {
   font-weight: bold;
   color: #007bff;
 }
 
-/* Icon styling */
 .notification-row mat-icon {
   margin-right: 10px;
   cursor: pointer;

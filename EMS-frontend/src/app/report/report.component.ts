@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReportService } from '../report.service';
+import { UserService } from '../user.service';
+import { NotificationService } from '../notification.service';
+import { HomeComponent } from '../home/home.component';
 
 interface Report {
   reportID: number;
@@ -39,8 +42,13 @@ export class ReportComponent implements OnInit {
   expenses: Expense[] = [];
   userDropdownOptions: User[] = [];
   totalAmountCalc: number = 0;
+  user: any;
 
-  constructor(private fb: FormBuilder, private reportService: ReportService) {
+
+  constructor(private fb: FormBuilder, private reportService: ReportService,
+    private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent
+
+  ) {
     this.reportForm = this.fb.group({
       user: [''],
       startDate: [''],
@@ -51,6 +59,9 @@ export class ReportComponent implements OnInit {
   ngOnInit(): void {
     this.loadUserDropdownOptions();
     this.loadReports();
+    this.userService.user$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   loadUserDropdownOptions(): void {
@@ -66,7 +77,7 @@ export class ReportComponent implements OnInit {
   }
 
   getUserName(userID: number): string {
-    const user = this.userDropdownOptions.find(option => option.userID === userID);
+    const user = this.userDropdownOptions.find(option => option.userID == userID);
     return user ? user.name : 'Unknown';
   }
 
@@ -103,10 +114,22 @@ export class ReportComponent implements OnInit {
             totalAmount: this.totalAmountCalc,     
             generatedDate: new Date().toISOString() 
         };
+        
 
         this.reportService.createReport(newReport).subscribe(report => {
           this.loadReports();
           this.reportForm.reset();
+        });
+        this.loadUserDropdownOptions();
+        console.log(newReport);
+        const newNotification: any = {
+          user: this.user.uid,
+          status: 'UNREAD',
+          date: new Date().toISOString(),
+          message: `New Report for (${this.getUserName(newReport.user)}) created`,
+        };
+        this.notificationService.createNotification(newNotification).subscribe(notification => {
+          this.homeComponent.loadNotifications();
         });
     });
 }

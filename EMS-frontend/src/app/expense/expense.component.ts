@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ExpenseService } from '../expense.service';
+import { UserService } from '../user.service';
+import { NotificationService } from '../notification.service';
+import { HomeComponent } from '../home/home.component';
 
 interface Expense {
   expenseID: number;
@@ -22,8 +25,11 @@ export class ExpenseComponent implements OnInit {
   dataSource: Expense[] = [];
   userDropdownOptions: any[] = [];
   categoryDropdownOptions: any[] = [];
+  user: any;
 
-  constructor(private fb: FormBuilder, private expenseService: ExpenseService) {
+  constructor(private fb: FormBuilder, private expenseService: ExpenseService,
+    private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent
+  ) {
     this.expenseForm = this.fb.group({
       userID: [''],
       amount: [''],
@@ -37,6 +43,9 @@ export class ExpenseComponent implements OnInit {
     this.loadUserDropdownOptions();
     this.loadCategoryDropdownOptions();
     this.loadTableData();
+    this.userService.user$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   loadUserDropdownOptions(): void {
@@ -87,10 +96,22 @@ export class ExpenseComponent implements OnInit {
       category: parseInt(formValues.categoryID),  
       description: formValues.description
     };
+    this.loadUserDropdownOptions();
+
+
+    const newNotification: any = {
+      user: this.user.uid,
+      status: 'UNREAD',
+      date: new Date().toISOString(),
+      message: `New Expense for (${this.getUserName(newExpense.user)}) created`,
+    };
 
     this.expenseService.createExpense(newExpense).subscribe(expense => {
       this.loadTableData();
       this.expenseForm.reset();
+    });
+    this.notificationService.createNotification(newNotification).subscribe(notification => {
+      this.homeComponent.loadNotifications();
     });
   }
 

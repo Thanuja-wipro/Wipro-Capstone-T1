@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent {
   isLoginMode: boolean = true;
@@ -18,7 +19,8 @@ export class AuthComponent {
   constructor(
     private authService: AuthService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
   onSwitchMode() {
@@ -30,8 +32,9 @@ export class AuthComponent {
     this.authService.login(this.email, this.password).subscribe(
       response => {
         if (response.status === 200) {
+          this.userService.setUser(response);
           this.router.navigate(['/home']);
-        }
+        } 
       },
       error => {
         this.showToast('Login failed. Please try again.');
@@ -46,7 +49,7 @@ export class AuthComponent {
           this.isLoginMode = true;
           this.resetFormFields();
           this.showToast('Signup successful! Please log in.');
-        }
+        } 
       },
       error => {
         this.showToast('Email is already taken');
