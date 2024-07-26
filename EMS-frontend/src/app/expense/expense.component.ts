@@ -50,7 +50,11 @@ export class ExpenseComponent implements OnInit {
 
   loadUserDropdownOptions(): void {
     this.expenseService.getUserDropdownOptions().subscribe(data => {
-      this.userDropdownOptions = data;
+      if (this.user.role == 'USER'){
+        this.userDropdownOptions = data.filter(u => u.userID === this.user.uid);
+      }else{
+        this.userDropdownOptions = data;
+      }
     });
   }
 
@@ -83,7 +87,11 @@ export class ExpenseComponent implements OnInit {
 
   loadTableData(): void {
     this.expenseService.getExpenses().subscribe(data => {
-      this.dataSource = data;
+      if (this.user.role == 'USER'){
+        this.dataSource = data.filter(expense => expense.userID === this.user.uid);
+      }else{
+        this.dataSource = data;
+      }
     });
   }
 

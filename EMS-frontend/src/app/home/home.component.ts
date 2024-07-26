@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { NotificationService } from '../notification.service';
+import { UserService } from '../user.service';
 
 interface Notification {
   notificationID: number;
@@ -19,18 +20,28 @@ interface Notification {
 export class HomeComponent implements OnInit {
   currentComponent: string = 'expenses';
   showModal: boolean = false;
+  user: any;
 
   notifications: Notification[] = [];
 
-  constructor(private notificationService: NotificationService) {}
+  constructor(private notificationService: NotificationService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.loadNotifications();
+    this.userService.user$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   loadNotifications(): void {
     this.notificationService.getNotifications().subscribe(data => {
-      this.notifications = data;
+      if (this.user.role == 'USER'){
+        this.notifications = data.filter(n => n.user.userID === this.user.uid);
+      }else{
+        this.notifications = data;
+      }
     });
   }
 

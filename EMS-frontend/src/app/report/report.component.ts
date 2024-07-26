@@ -66,13 +66,21 @@ export class ReportComponent implements OnInit {
 
   loadUserDropdownOptions(): void {
     this.reportService.getDropdownOptions().subscribe(options => {
-      this.userDropdownOptions = options;
+      if (this.user.role == 'USER'){
+        this.userDropdownOptions = options.filter(o => o.userID === this.user.uid);
+      }else{
+        this.userDropdownOptions = options;
+      }
     });
   }
 
   loadReports(): void {
     this.reportService.getReports().subscribe(data => {
-      this.reports = data;
+      if (this.user.role == 'USER'){
+        this.reports = data.filter(r => r.user.userID === this.user.uid);
+      }else{
+        this.reports = data;
+      }
     });
   }
 

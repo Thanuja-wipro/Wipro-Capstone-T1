@@ -111,4 +111,12 @@ export class CategoryComponent implements OnInit {
   isEditing(): boolean {
     return this.editingCategory !== null;
   }
+
+  isAdmin(): boolean {
+    if (this.user.role == 'ADMIN'){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
