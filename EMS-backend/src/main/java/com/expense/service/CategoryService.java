@@ -24,8 +24,10 @@ public class CategoryService {
 		return categoryRepo.findAll();
 	}
 	
-	public Optional<Category> getCategoryById(Long id) {
-		return categoryRepo.findById(id);
+	public Category getCategoryById(Long id) throws ResourceNotFoundException{
+		return categoryRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Category Not Found"));
+
 	}
 	
 	public Category updateCategory(Long id, Category category) throws ResourceNotFoundException{

@@ -1,9 +1,9 @@
 package com.expense.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +17,7 @@ import com.expense.dto.ExpenseDto;
 import com.expense.dto.ReportDto;
 import com.expense.entity.Expense;
 import com.expense.entity.Report;
+import com.expense.exception.ResourceNotFoundException;
 import com.expense.service.ReportService;
 
 @CrossOrigin
@@ -43,8 +44,9 @@ public class ReportController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Report> getReportById(@PathVariable Long id) {
-        return reportService.getReportById(id);
+    public ResponseEntity<Report> getReportById(@PathVariable Long id) throws ResourceNotFoundException{
+    	Report report = reportService.getReportById(id);
+        return ResponseEntity.ok().body(report);
     }
 
     @DeleteMapping("/{id}")

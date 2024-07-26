@@ -2,18 +2,16 @@ package com.expense.service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.expense.dto.ExpenseDto;
 import com.expense.dto.ReportDto;
-import com.expense.entity.Category;
 import com.expense.entity.Expense;
 import com.expense.entity.Report;
 import com.expense.entity.User;
-import com.expense.repository.CategoryRepository;
+import com.expense.exception.ResourceNotFoundException;
 import com.expense.repository.ExpenseRepository;
 import com.expense.repository.ReportRepository;
 import com.expense.repository.UserRepository;
@@ -58,8 +56,10 @@ public class ReportService {
 		return reportRepo.findAll();
 	}
 	
-	public Optional<Report> getReportById(Long id) {
-		return reportRepo.findById(id);
+	public Report getReportById(Long id) throws ResourceNotFoundException{
+		return reportRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Report not found"));
+
 	}
 	
 	public void deleteReport(Long id) {

@@ -1,11 +1,9 @@
 package com.expense.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.expense.entity.Category;
 import com.expense.entity.Expense;
@@ -46,8 +44,10 @@ public class ExpenseService {
         return expenseRepo.findAll();
     }
 
-    public Optional<Expense> getExpenseById(Long id){
-        return expenseRepo.findById(id);
+    public Expense getExpenseById(Long id) throws ResourceNotFoundException{
+        return expenseRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Expense not found"));
+
     }
     
     public Expense updateExpense(Long id, ExpenseDto expenseDTO) throws ResourceNotFoundException{
