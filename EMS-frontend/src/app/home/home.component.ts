@@ -101,4 +101,8 @@ export class HomeComponent implements OnInit {
       this.closeNotificationModal();
     }
   }
+
+  navigateToUrl(){
+    this.currentComponent = "expenses";
+  }
 }
