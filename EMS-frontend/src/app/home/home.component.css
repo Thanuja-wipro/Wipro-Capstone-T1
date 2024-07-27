@@ -105,3 +105,49 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+.logo{
+  width: 94px;
+  height: 40px;
+  margin-left: -10px;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+.logo mat-icon {
+  width: 50px;
+  height: 40px;
+  font-size: 40px;
+}
+
+
+.logo strong {
+  width: 50px;
+  height: 40px;
+  font-size: 25px;
+  padding: 8px 0px;
+}
+
+
+.content-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+
+.content-logo mat-icon {
+  width: 50px;
+  height: 40px;
+  font-size: 40px;
+}
+
+
+.content-logo strong {
+  font-size: 25px;
+  padding: 8px 0px;
+}

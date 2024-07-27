@@ -1,6 +1,9 @@
-<!-- home.component.html -->
 <div class="home-container">
   <nav class="sidebar">
+    <div class="logo" (click)="navigateToUrl()">
+      <mat-icon>monetization_on</mat-icon>
+      <strong>EMS</strong>
+    </div>
     <button mat-button 
             [ngClass]="{'active': currentComponent === 'expenses'}"
             (click)="showComponent('expenses')">Expenses</button>
@@ -12,6 +15,10 @@
             (click)="showComponent('reports')">Reports</button>
   </nav>
   <div class="content">
+    <div class="content-logo">
+      <mat-icon>account_balance</mat-icon>
+      <strong>Expense Management System</strong>
+    </div>
     <app-expense *ngIf="currentComponent === 'expenses'"></app-expense>
     <app-category *ngIf="currentComponent === 'category'"></app-category>
     <app-report *ngIf="currentComponent === 'reports'"></app-report>
