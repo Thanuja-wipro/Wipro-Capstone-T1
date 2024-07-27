@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+expense-management-system,com.expense.exception,GlobalExceptionHandler,36,3,0,0,4,1,2,1,2,1
+expense-management-system,com.expense.exception,ResourceNotFoundException,4,0,0,0,2,0,1,0,1,0
+expense-management-system,com.expense.exception,ErrorDetail,21,0,0,0,8,0,4,0,4,0
+expense-management-system,com.expense.entity,User,18,38,0,0,7,17,1,11,1,11
+expense-management-system,com.expense.entity,User.Role,0,24,0,0,0,2,0,1,0,1
+expense-management-system,com.expense,UserMainApplication,5,3,0,0,2,1,1,1,1,1
+expense-management-system,com.expense.controller,UserController,16,80,0,2,1,17,2,4,2,3
+expense-management-system,com.expense.config,SecurityConfig,0,101,0,0,0,18,0,6,0,6
+expense-management-system,com.expense.service,UserService,0,34,0,0,0,4,0,3,0,3
