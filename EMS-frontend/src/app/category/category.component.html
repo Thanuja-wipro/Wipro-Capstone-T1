@@ -39,22 +39,14 @@
                 </td>
                 <td>
                     <ng-container *ngIf="editingCategory?.categoryID === category.categoryID; else actionButtons">
-                        <button (click)="updateCategory()">
-                            <mat-icon>check_circle_outline</mat-icon>
-                        </button>
-                        <button (click)="cancelEdit()">
-                            <mat-icon>close</mat-icon>
-                        </button>
+                        <button (click)="updateCategory()">Update</button>
+                        <button (click)="cancelEdit()">Cancel</button>
                     </ng-container>
                     <ng-template #actionButtons>
                         <button (click)="editCategory(category)"
-                            [disabled]="!isAdmin() || (isEditing() && editingCategory?.categoryID !== category.categoryID)">
-                            <mat-icon>edit_note</mat-icon>
-                        </button>
+                            [disabled]="!isAdmin() || (isEditing() && editingCategory?.categoryID !== category.categoryID)">Edit</button>
                         <button (click)="deleteCategory(category.categoryID)" 
-                            [disabled]="!isAdmin() || isEditing()">
-                            <mat-icon>delete_forever</mat-icon>
-                        </button>
+                            [disabled]="!isAdmin() || isEditing()">Delete</button>
                     </ng-template>
                     
                 </td>
