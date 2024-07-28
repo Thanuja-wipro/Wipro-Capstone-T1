@@ -109,12 +109,20 @@
 
             <td>
                 <ng-container *ngIf="isEditing(element); else actionButtons">
-                    <button (click)="updateElement()">Update</button>
-                    <button (click)="cancelEdit()">Cancel</button>
+                    <button (click)="updateElement()">
+                        <mat-icon>check_circle_outline</mat-icon>
+                    </button>
+                    <button (click)="cancelEdit()">
+                        <mat-icon>close</mat-icon>
+                    </button>
                 </ng-container>
                 <ng-template #actionButtons>
-                    <button (click)="editElement(element)" [disabled]="editingElementID !== null">Edit</button>
-                    <button (click)="deleteElement(element.expenseID)" [disabled]="editingElementID !== null">Delete</button>
+                    <button (click)="editElement(element)" [disabled]="editingElementID !== null">
+                        <mat-icon>edit_note</mat-icon>
+                    </button>
+                    <button (click)="deleteElement(element.expenseID)" [disabled]="editingElementID !== null">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
                 </ng-template>
             </td>
         </tr>
