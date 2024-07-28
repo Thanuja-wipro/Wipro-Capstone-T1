@@ -36,7 +36,9 @@
         <td>{{ report.totalAmount }}</td>
         <td>{{ formatDate(report.generatedDate) }}</td>
         <td>
-          <button (click)="deleteReport(i)">Delete</button>
+          <button (click)="deleteReport(i)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
         </td>
       </tr>
     </tbody>

@@ -41,7 +41,9 @@
             {{ notification.status === 'READ' ? 'visibility' : 'visibility_off' }}
           </mat-icon>
         </span>
-        <button class="delete-btn" (click)="deleteNotification(notification)">Delete</button>
+        <button class="delete-btn" (click)="deleteNotification(notification)">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
       </div>
       <button class="close-btn" (click)="closeNotificationModal()">Close</button>
     </div>
