@@ -130,7 +130,6 @@ export class ExpenseComponent implements OnInit {
   updateElement(): void {
     if (this.editingElementID !== null) {
       const updatedExpense = this.dataSource.find(e => e.expenseID === this.editingElementID);
-      console.log(updatedExpense);
       if (updatedExpense) {
         const finalUpdatedExpense: any = {
           expenseID: updatedExpense.expenseID,
@@ -140,7 +139,6 @@ export class ExpenseComponent implements OnInit {
           category: updatedExpense.categoryID,  
           description: updatedExpense.description
         }
-        console.log(finalUpdatedExpense);
         if (finalUpdatedExpense) {
           this.expenseService.updateExpense(finalUpdatedExpense).subscribe(expense => {
             const index = this.dataSource.findIndex(e => e.expenseID === expense.expenseID);

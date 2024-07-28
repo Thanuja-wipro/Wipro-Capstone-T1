@@ -129,7 +129,6 @@ export class ReportComponent implements OnInit {
           this.reportForm.reset();
         });
         this.loadUserDropdownOptions();
-        console.log(newReport);
         const newNotification: any = {
           user: this.user.uid,
           status: 'UNREAD',
@@ -166,8 +165,6 @@ calculateTotalAmount(expenses: Expense[]): number {
 
 deleteReport(index: number): void {
   const deletedReport = this.reports[index];
-  console.log('Deleting report:', deletedReport);
-  console.log('Deleting report:', );
   
   this.reportService.deleteReport(deletedReport.reportID).subscribe(() => {
     this.loadReports();

@@ -9,15 +9,19 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expense.dto.ExpenseDto;
 import com.expense.dto.NotificationDto;
+import com.expense.entity.Expense;
 import com.expense.entity.Notification;
+import com.expense.exception.ResourceNotFoundException;
 import com.expense.service.NotificationService;
 
-@CrossOrigin
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/notifications")
 public class NotificationController {
@@ -33,6 +37,11 @@ public class NotificationController {
     @GetMapping
     public List<Notification> getAllNotifications() {
         return notificationService.getAllNotifications();
+    }
+    
+    @PutMapping("/{id}")
+    public Notification updateNotification(@PathVariable Long id, @RequestBody NotificationDto notificationDTO) throws ResourceNotFoundException{
+    	return notificationService.updateNotification(id, notificationDTO);
     }
 
 

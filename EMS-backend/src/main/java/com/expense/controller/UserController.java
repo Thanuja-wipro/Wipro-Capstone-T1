@@ -51,9 +51,13 @@ public class UserController {
            SecurityContextHolder.getContext().setAuthentication(authentication);
 
            Map<String, Object> response = new HashMap<>();
+           Map<String, Object> body = new HashMap<>();
            response.put("status", 200);
            response.put("message", "User signed-in successful");
-
+           body.put("uid", ex_user.getUserID());
+           body.put("role", ex_user.getRole());
+           
+           response.put("body", body);
            return ResponseEntity.ok(response);
      
    }
