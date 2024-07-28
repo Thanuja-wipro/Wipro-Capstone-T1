@@ -2661,3 +2661,78 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2024-07-27 15:42:01,059 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-07-27 15:42:01,300 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-07-27 15:42:01,368 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:15:40,257 [Worker-125: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Category:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Category\pom.xml.
+2024-07-27 18:15:45,305 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:15:45,379 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:15:45,385 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:15:46,556 [Worker-125: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Expense:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Expense\pom.xml.
+2024-07-27 18:15:49,863 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:15:49,888 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:15:49,892 [Worker-125: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:15:51,913 [Worker-127: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Category:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Category\pom.xml.
+2024-07-27 18:15:54,995 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:15:54,999 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:15:55,005 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:15:55,807 [Worker-127: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Expense:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Expense\pom.xml.
+2024-07-27 18:15:57,210 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:15:57,213 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:15:57,217 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:15:58,047 [Worker-127: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Notification:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Notification\pom.xml.
+2024-07-27 18:16:01,050 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:16:01,230 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:16:01,242 [Worker-127: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:16:05,038 [Worker-133: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Notification:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Notification\pom.xml.
+2024-07-27 18:16:07,729 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:16:07,734 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:16:07,741 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:16:08,803 [Worker-133: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Report:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Report\pom.xml.
+2024-07-27 18:16:10,589 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:16:10,606 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:16:10,611 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:16:11,705 [Worker-133: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-User:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-User\pom.xml.
+2024-07-27 18:16:13,662 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:16:13,672 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:16:13,675 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:16:15,824 [Worker-142: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-Report:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-Report\pom.xml.
+2024-07-27 18:16:18,482 [Worker-142: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-27 18:16:18,486 [Worker-142: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-27 18:16:18,489 [Worker-142: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-27 18:16:20,944 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@c15f751{STOPPING}[12.0.9,sto=0]
+2024-07-27 18:16:20,972 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@4cfd7407{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2024-07-28 12:11:28,044 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-07-28 12:11:37,690 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:11:37,745 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:11:37,761 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:11:44,741 [Worker-16: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ems:EMS-backend-User:0.0.1-SNAPSHOT @ C:\Users\chtan\Downloads\Wipro-Capstone\EMS-backend-microservice\EMS-User\pom.xml.
+2024-07-28 12:11:47,002 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:11:47,008 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:11:47,012 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:19:22,026 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-12.0.9; built: 2024-05-03T13:03:17.262Z; git: efe8023327e67287f9bfd006700e6a71d45b5dd6; jvm 21.0.3+9-LTS
+2024-07-28 12:19:22,103 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started oeje8n.ContextHandler$CoreContextHandler@127aeb6b{/help,/help,b=null,a=AVAILABLE,h=oeje8n.ContextHandler$CoreContextHandler$CoreToNestedHandler@4f61392d{STARTED}}
+2024-07-28 12:19:22,105 [Start Help Server] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+2024-07-28 12:19:22,147 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@22c278be{HTTP/1.1, (http/1.1)}{127.0.0.1:56299}
+2024-07-28 12:19:22,158 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@4f0e68b2{STARTING}[12.0.9,sto=0] @489144ms
+2024-07-28 12:19:39,522 [Worker-19: Launching EMS-backend - ExpenseMainApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:19:39,535 [Worker-19: Launching EMS-backend - ExpenseMainApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:19:39,541 [Worker-19: Launching EMS-backend - ExpenseMainApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:22:54,068 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:22:54,117 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:22:54,120 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:23:08,237 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:23:08,265 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:23:08,270 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:23:30,573 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:23:30,598 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:23:30,602 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:30:35,334 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:30:35,384 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:30:35,388 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:39:59,521 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:39:59,528 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:39:59,532 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 12:42:06,033 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-07-28 12:42:06,056 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-07-28 12:42:06,060 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-07-28 15:07:24,310 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@4f0e68b2{STOPPING}[12.0.9,sto=0]
+2024-07-28 15:07:24,324 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@22c278be{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2024-07-28 18:37:05,954 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
