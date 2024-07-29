@@ -1,0 +1,99 @@
+com.expense.ExpenseMainApplication-[INFO]- 2024-07-29 09:36:16,779-Starting ExpenseMainApplication using Java 21.0.3 with PID 3824 (D:\SpringSTS\workspace5\EMS-UserService\target\classes started by Vamsi in D:\SpringSTS\workspace5\EMS-UserService)-
+com.expense.ExpenseMainApplication-[INFO]- 2024-07-29 09:36:16,791-No active profile set, falling back to 1 default profile: "default"-
+org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor-[INFO]- 2024-07-29 09:36:16,866-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable-
+org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor-[INFO]- 2024-07-29 09:36:16,867-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'-
+org.springframework.data.repository.config.RepositoryConfigurationDelegate-[INFO]- 2024-07-29 09:36:17,825-Bootstrapping Spring Data JPA repositories in DEFAULT mode.-
+org.springframework.data.repository.config.RepositoryConfigurationDelegate-[INFO]- 2024-07-29 09:36:17,888-Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.-
+org.springframework.boot.web.embedded.tomcat.TomcatWebServer-[INFO]- 2024-07-29 09:36:18,660-Tomcat initialized with port 9091 (http)-
+org.apache.catalina.core.StandardService-[INFO]- 2024-07-29 09:36:18,680-Starting service [Tomcat]-
+org.apache.catalina.core.StandardEngine-[INFO]- 2024-07-29 09:36:18,681-Starting Servlet engine: [Apache Tomcat/10.1.24]-
+org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]-[INFO]- 2024-07-29 09:36:18,770-Initializing Spring embedded WebApplicationContext-
+org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext-[INFO]- 2024-07-29 09:36:18,770-Root WebApplicationContext: initialization completed in 1902 ms-
+org.hibernate.jpa.internal.util.LogHelper-[INFO]- 2024-07-29 09:36:18,967-HHH000204: Processing PersistenceUnitInfo [name: default]-
+org.hibernate.Version-[INFO]- 2024-07-29 09:36:19,030-HHH000412: Hibernate ORM core version 6.5.2.Final-
+org.hibernate.cache.internal.RegionFactoryInitiator-[INFO]- 2024-07-29 09:36:19,069-HHH000026: Second-level cache disabled-
+org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo-[INFO]- 2024-07-29 09:36:19,372-No LoadTimeWeaver setup: ignoring JPA class transformer-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 09:36:19,408-HikariPool-1 - Starting...-
+com.zaxxer.hikari.pool.HikariPool-[INFO]- 2024-07-29 09:36:19,753-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3949756b-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 09:36:19,755-HikariPool-1 - Start completed.-
+org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator-[INFO]- 2024-07-29 09:36:20,893-HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)-
+org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean-[INFO]- 2024-07-29 09:36:20,974-Initialized JPA EntityManagerFactory for persistence unit 'default'-
+org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext-[WARN]- 2024-07-29 09:36:21,287-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testController' defined in file [D:\SpringSTS\workspace5\EMS-UserService\target\classes\com\expense\controller\TestController.class]: Failed to instantiate [com.expense.controller.TestController]: Constructor threw exception-
+org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean-[INFO]- 2024-07-29 09:36:21,287-Closing JPA EntityManagerFactory for persistence unit 'default'-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 09:36:21,290-HikariPool-1 - Shutdown initiated...-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 09:36:21,300-HikariPool-1 - Shutdown completed.-
+org.apache.catalina.core.StandardService-[INFO]- 2024-07-29 09:36:21,302-Stopping service [Tomcat]-
+org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger-[INFO]- 2024-07-29 09:36:21,320-
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.-
+org.springframework.boot.SpringApplication-[ERROR]- 2024-07-29 09:36:21,346-Application run failed-
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testController' defined in file [D:\SpringSTS\workspace5\EMS-UserService\target\classes\com\expense\controller\TestController.class]: Failed to instantiate [com.expense.controller.TestController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1319)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1204)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.expense.ExpenseMainApplication.main(ExpenseMainApplication.java:12)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.expense.controller.TestController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:88)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1313)
+	... 20 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Test_Feign_Client cannot be resolved to a type
+	Test_Feign_Client cannot be resolved to a type
+
+	at com.expense.controller.TestController.<init>(TestController.java:14)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 22 common frames omitted
+com.expense.ExpenseMainApplication-[INFO]- 2024-07-29 10:30:23,472-Starting ExpenseMainApplication using Java 21.0.3 with PID 13140 (D:\SpringSTS\workspace5\EMS-UserService\target\classes started by Vamsi in D:\SpringSTS\workspace5\EMS-UserService)-
+com.expense.ExpenseMainApplication-[INFO]- 2024-07-29 10:30:23,475-No active profile set, falling back to 1 default profile: "default"-
+org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor-[INFO]- 2024-07-29 10:30:23,531-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable-
+org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor-[INFO]- 2024-07-29 10:30:23,531-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'-
+org.springframework.data.repository.config.RepositoryConfigurationDelegate-[INFO]- 2024-07-29 10:30:24,430-Bootstrapping Spring Data JPA repositories in DEFAULT mode.-
+org.springframework.data.repository.config.RepositoryConfigurationDelegate-[INFO]- 2024-07-29 10:30:24,487-Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.-
+org.springframework.boot.web.embedded.tomcat.TomcatWebServer-[INFO]- 2024-07-29 10:30:25,293-Tomcat initialized with port 9091 (http)-
+org.apache.catalina.core.StandardService-[INFO]- 2024-07-29 10:30:25,307-Starting service [Tomcat]-
+org.apache.catalina.core.StandardEngine-[INFO]- 2024-07-29 10:30:25,307-Starting Servlet engine: [Apache Tomcat/10.1.24]-
+org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]-[INFO]- 2024-07-29 10:30:25,368-Initializing Spring embedded WebApplicationContext-
+org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext-[INFO]- 2024-07-29 10:30:25,369-Root WebApplicationContext: initialization completed in 1836 ms-
+org.hibernate.jpa.internal.util.LogHelper-[INFO]- 2024-07-29 10:30:25,533-HHH000204: Processing PersistenceUnitInfo [name: default]-
+org.hibernate.Version-[INFO]- 2024-07-29 10:30:25,608-HHH000412: Hibernate ORM core version 6.5.2.Final-
+org.hibernate.cache.internal.RegionFactoryInitiator-[INFO]- 2024-07-29 10:30:25,648-HHH000026: Second-level cache disabled-
+org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo-[INFO]- 2024-07-29 10:30:26,035-No LoadTimeWeaver setup: ignoring JPA class transformer-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 10:30:26,076-HikariPool-1 - Starting...-
+com.zaxxer.hikari.pool.HikariPool-[INFO]- 2024-07-29 10:30:26,503-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@259941d9-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 10:30:26,506-HikariPool-1 - Start completed.-
+org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator-[INFO]- 2024-07-29 10:30:28,151-HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)-
+org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean-[INFO]- 2024-07-29 10:30:28,258-Initialized JPA EntityManagerFactory for persistence unit 'default'-
+org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer-[INFO]- 2024-07-29 10:30:28,703-Global AuthenticationManager configured with UserDetailsService bean with name userService-
+org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration-[WARN]- 2024-07-29 10:30:28,908-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning-
+org.springframework.security.web.DefaultSecurityFilterChain-[INFO]- 2024-07-29 10:30:30,159-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25e49ba4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5733e13c, org.springframework.security.web.context.SecurityContextHolderFilter@2372bbfd, org.springframework.security.web.header.HeaderWriterFilter@59632620, org.springframework.web.filter.CorsFilter@446db2ce, org.springframework.security.web.authentication.logout.LogoutFilter@6037665e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@23ba23ff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d8298da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@226b7d1e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26c2f958, org.springframework.security.web.access.ExceptionTranslationFilter@505eefea, org.springframework.security.web.access.intercept.AuthorizationFilter@1955503c]-
+org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer-[WARN]- 2024-07-29 10:30:30,634-Unable to start LiveReload server-
+org.springframework.boot.web.embedded.tomcat.TomcatWebServer-[INFO]- 2024-07-29 10:30:30,691-Tomcat started on port 9091 (http) with context path '/'-
+com.expense.ExpenseMainApplication-[INFO]- 2024-07-29 10:30:30,706-Started ExpenseMainApplication in 7.758 seconds (process running for 8.713)-
+org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]-[INFO]- 2024-07-29 10:30:53,586-Initializing Spring DispatcherServlet 'dispatcherServlet'-
+org.springframework.web.servlet.DispatcherServlet-[INFO]- 2024-07-29 10:30:53,586-Initializing Servlet 'dispatcherServlet'-
+org.springframework.web.servlet.DispatcherServlet-[INFO]- 2024-07-29 10:30:53,587-Completed initialization in 1 ms-
+org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin-[INFO]- 2024-07-29 10:33:28,387-Application shutdown requested.-
+org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean-[INFO]- 2024-07-29 10:33:28,398-Closing JPA EntityManagerFactory for persistence unit 'default'-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 10:33:28,403-HikariPool-1 - Shutdown initiated...-
+com.zaxxer.hikari.HikariDataSource-[INFO]- 2024-07-29 10:33:28,414-HikariPool-1 - Shutdown completed.-
