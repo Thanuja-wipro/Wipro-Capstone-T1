@@ -32,7 +32,7 @@ interface User {
   providedIn: 'root'
 })
 export class ReportService {
-  private apiUrl = 'http://localhost:6060';
+  private apiUrl = 'http://localhost:9095';
 
   constructor(private http: HttpClient) { }
 
@@ -49,7 +49,7 @@ export class ReportService {
   }
 
   getDropdownOptions(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/user/auth`);
+    return this.http.get<User[]>(`http://localhost:9091/user/auth`);
   }
 
   generateReport(criteria: any): Observable<Expense[]> {
