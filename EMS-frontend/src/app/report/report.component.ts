@@ -121,7 +121,7 @@ export class ReportComponent implements OnInit {
             period: period,  
             totalAmount: this.totalAmountCalc,     
             generatedDate: new Date().toISOString() 
-        };
+        };    
         
 
         this.reportService.createReport(newReport).subscribe(report => {

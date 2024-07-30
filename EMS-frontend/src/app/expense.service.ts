@@ -15,7 +15,7 @@ interface Expense {
   providedIn: 'root'
 })
 export class ExpenseService {
-  private apiUrl = 'http://localhost:6060';
+  private apiUrl = 'http://localhost:9092';
 
   constructor(private http: HttpClient) { }
 
@@ -36,9 +36,9 @@ export class ExpenseService {
   }
 
   getCategoryDropdownOptions(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/categories`);
+    return this.http.get<any[]>(`http://localhost:9093/categories`);
   }
   getUserDropdownOptions(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/user/auth`);
+    return this.http.get<any[]>(`http://localhost:9091/user/auth`);
   }
 }
