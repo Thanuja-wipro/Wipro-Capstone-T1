@@ -71,4 +71,7 @@
   .switch-mode:hover {
     text-decoration: underline;
   }
-  
+  label::after{
+    content: "*";
+    color: black;
+  }

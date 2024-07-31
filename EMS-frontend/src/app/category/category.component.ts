@@ -4,6 +4,7 @@ import { CategoryService } from '../category.service';
 import { UserService } from '../user.service';
 import { NotificationService } from '../notification.service';
 import { HomeComponent } from '../home/home.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Category {
   categoryID: number;
@@ -25,7 +26,7 @@ export class CategoryComponent implements OnInit {
 
   user: any;
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService,
+  constructor(private fb: FormBuilder, private categoryService: CategoryService, private snackBar: MatSnackBar,
     private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent) {
     this.categoryForm = this.fb.group({
       name: ['', Validators.required],
@@ -58,6 +59,13 @@ export class CategoryComponent implements OnInit {
       ...this.categoryForm.value
     };
 
+    if(newCategory.name === null || newCategory.name === '' ||
+      newCategory.description === null || newCategory.description === ''
+    ){
+      this.showToast('Please fill the mandatory fields');
+      return;
+    }
+
     const newNotification: any = {
       user: this.user.uid,
       status: 'UNREAD',
@@ -85,7 +93,12 @@ export class CategoryComponent implements OnInit {
     if (this.editingCategory) {
       this.editingCategory.name = this.editingCategoryName;
       this.editingCategory.description = this.editingCategoryDescription;
-
+      if(this.editingCategory.name === null || this.editingCategory.name === '' ||
+        this.editingCategory.description === null || this.editingCategory.description === ''
+      ){
+        this.showToast('Please fill the mandatory fields');
+        return;
+      }
       this.categoryService.updateCategory(this.editingCategory).subscribe(updatedCategory => {
         const index = this.categories.findIndex(c => c.categoryID === updatedCategory.categoryID);
         if (index !== -1) {
@@ -118,5 +131,11 @@ export class CategoryComponent implements OnInit {
     }else{
       return false;
     }
+  }
+
+  showToast(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+    });
   }
 }

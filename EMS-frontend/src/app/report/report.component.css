@@ -70,3 +70,7 @@
     background: #0056b3;
   }
   
+  label::after{
+    content: "*";
+    color: black;
+  }

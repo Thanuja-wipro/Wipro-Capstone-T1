@@ -4,6 +4,7 @@ import { ReportService } from '../report.service';
 import { UserService } from '../user.service';
 import { NotificationService } from '../notification.service';
 import { HomeComponent } from '../home/home.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Report {
   reportID: number;
@@ -46,8 +47,8 @@ export class ReportComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private reportService: ReportService,
-    private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent
-
+    private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent,
+    private snackBar: MatSnackBar
   ) {
     this.reportForm = this.fb.group({
       user: [''],
@@ -106,6 +107,12 @@ export class ReportComponent implements OnInit {
         startDate: `${this.reportForm.value.startDate}T00:00:00Z`,
         endDate: `${this.reportForm.value.endDate}T00:00:00Z`
     };
+
+    if(reportCriteria.user === null || reportCriteria.user === ''
+    ){
+      this.showToast('Please select the user');
+      return;
+    }
 
     this.reportService.generateReport(reportCriteria).subscribe(expenses => {
         this.expenses = expenses;
@@ -168,6 +175,12 @@ deleteReport(index: number): void {
   
   this.reportService.deleteReport(deletedReport.reportID).subscribe(() => {
     this.loadReports();
+  });
+}
+
+showToast(message: string) {
+  this.snackBar.open(message, 'Close', {
+    duration: 3000,
   });
 }
 

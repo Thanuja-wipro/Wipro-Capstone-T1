@@ -29,32 +29,54 @@ export class AuthComponent {
   }
 
   onLogin() {
-    this.authService.login(this.email, this.password).subscribe(
-      response => {
-        if (response.status === 200) {
-          this.userService.setUser(response);
-          this.router.navigate(['/home']);
-        } 
-      },
-      error => {
-        this.showToast('Login failed. Please try again.');
-      }
-    );
+    if (this.email === '' || this.email===null){
+      this.showToast('Please enter the email')
+    }else if (this.password === '' || this.password===null){
+      this.showToast('Please enter the password')
+    }else if (this.email.endsWith('@gmail.com') === false){
+      this.showToast('Please enter valid email')
+    }else {
+      this.authService.login(this.email, this.password).subscribe(
+        response => {
+          if (response.status === 200) {
+            this.userService.setUser(response);
+            this.router.navigate(['/home']);
+          } 
+        },
+        error => {
+          this.showToast('Login failed. Please try again.');
+        }
+      );
+    }
+    
   }
 
   onSignup() {
-    this.authService.signup(this.name, this.email, this.role, this.password).subscribe(
-      response => {
-        if (response.status === 200) {
-          this.isLoginMode = true;
-          this.resetFormFields();
-          this.showToast('Signup successful! Please log in.');
-        } 
-      },
-      error => {
-        this.showToast('Email is already taken');
-      }
-    );
+    if (this.email === '' || this.email===null){
+      this.showToast('Please enter the email')
+    }else if (this.password === '' || this.password===null){
+      this.showToast('Please enter the password')
+    }else if (this.email.endsWith('@gmail.com') === false){
+      this.showToast('Please enter valid email')
+    } else if (this.name === '' || this.name===null){
+      this.showToast('Please enter the name')
+    } else if (this.password.length < 8){
+      this.showToast('Please enter a minimum of 8 characters')
+    }else {
+      this.authService.signup(this.name, this.email, this.role, this.password).subscribe(
+        response => {
+          if (response.status === 200) {
+            this.isLoginMode = true;
+            this.resetFormFields();
+            this.showToast('Signup successful! Please log in.');
+          } 
+        },
+        error => {
+          this.showToast('Email is already taken');
+        }
+      );
+    }
+    
   }
 
   resetFormFields() {

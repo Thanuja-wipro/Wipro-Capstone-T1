@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExpenseService } from '../expense.service';
 import { UserService } from '../user.service';
 import { NotificationService } from '../notification.service';
 import { HomeComponent } from '../home/home.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Expense {
   expenseID: number;
@@ -27,7 +28,7 @@ export class ExpenseComponent implements OnInit {
   categoryDropdownOptions: any[] = [];
   user: any;
 
-  constructor(private fb: FormBuilder, private expenseService: ExpenseService,
+  constructor(private fb: FormBuilder, private expenseService: ExpenseService, private snackBar: MatSnackBar,
     private userService: UserService, private notificationService: NotificationService, private homeComponent: HomeComponent
   ) {
     this.expenseForm = this.fb.group({
@@ -106,21 +107,31 @@ export class ExpenseComponent implements OnInit {
     };
     this.loadUserDropdownOptions();
 
+    if (newExpense.user === null || newExpense.user === '' ||
+      newExpense.amount === null || newExpense.amount === '' ||
+      newExpense.date === null || newExpense.date === '' ||
+      newExpense.category === null || newExpense.category === '' ||
+      newExpense.description === null || newExpense.description === ''   
+    ){
+      this.showToast('Please fill the mandatory fields');
+    }else{
+      const newNotification: any = {
+        user: this.user.uid,
+        status: 'UNREAD',
+        date: new Date().toISOString(),
+        message: `New Expense for (${this.getUserName(newExpense.user)}) created`,
+      };
+  
+      this.expenseService.createExpense(newExpense).subscribe(expense => {
+        this.loadTableData();
+        this.expenseForm.reset();
+      });
+      this.notificationService.createNotification(newNotification).subscribe(notification => {
+        this.homeComponent.loadNotifications();
+      });
+    }
 
-    const newNotification: any = {
-      user: this.user.uid,
-      status: 'UNREAD',
-      date: new Date().toISOString(),
-      message: `New Expense for (${this.getUserName(newExpense.user)}) created`,
-    };
 
-    this.expenseService.createExpense(newExpense).subscribe(expense => {
-      this.loadTableData();
-      this.expenseForm.reset();
-    });
-    this.notificationService.createNotification(newNotification).subscribe(notification => {
-      this.homeComponent.loadNotifications();
-    });
   }
 
   editElement(element: Expense): void {
@@ -139,13 +150,23 @@ export class ExpenseComponent implements OnInit {
           category: updatedExpense.categoryID,  
           description: updatedExpense.description
         }
+        if (finalUpdatedExpense.user === null || finalUpdatedExpense.user === '' ||
+          finalUpdatedExpense.amount === null || finalUpdatedExpense.amount === '' ||
+          finalUpdatedExpense.date === null || finalUpdatedExpense.date === '' ||
+          finalUpdatedExpense.category === null || finalUpdatedExpense.category === '' ||
+          finalUpdatedExpense.description === null || finalUpdatedExpense.description === ''   
+        ){
+          this.showToast('Please fill the mandatory fields');
+        }else{
         if (finalUpdatedExpense) {
           this.expenseService.updateExpense(finalUpdatedExpense).subscribe(expense => {
             const index = this.dataSource.findIndex(e => e.expenseID === expense.expenseID);
-            this.loadTableData();
-            this.cancelEdit();
+            
           });
         }
+      }
+      this.loadTableData();
+            this.cancelEdit();
       };
     }
   }
@@ -162,5 +183,10 @@ export class ExpenseComponent implements OnInit {
 
   isEditing(element: Expense): boolean {
     return this.editingElementID === element.expenseID;
+  }
+  showToast(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+    });
   }
 }
