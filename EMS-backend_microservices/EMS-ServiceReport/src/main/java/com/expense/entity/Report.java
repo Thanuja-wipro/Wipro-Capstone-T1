@@ -46,6 +46,10 @@ public class Report {
 		return user;
 	}
 	
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	public String getPeriod() {
 		return period;
 	}
@@ -64,10 +68,6 @@ public class Report {
 	public void setGeneratedDate(Date generatedDate) {
 		this.generatedDate = generatedDate;
 	}
-	public void setUser(com.expense.entity.User user2) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
     
 }
